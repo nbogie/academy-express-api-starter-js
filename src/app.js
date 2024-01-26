@@ -1,7 +1,7 @@
 const express = require("express");
 const { Pool } = require("pg");
 const { connectLiveReload } = require("./liveReloadSupport");
-require("dotenv").config();
+require("dotenv").config(); //load key-value pairs from any .env files into process.env
 const { randomDieRoll } = require("./dice");
 
 if (!process.env.DATABASE_URL) {
@@ -20,6 +20,9 @@ const app = express();
 
 //any requests for files which are found in public will be served.  e.g. /index.html will serve from /oublic/index.html
 app.use(express.static("public"));
+
+//parse any form content from request body (application/x-www-form-urlencoded), making available as req.body
+app.use(express.urlencoded({ extended: false }));
 
 app.set("view engine", "ejs");
 

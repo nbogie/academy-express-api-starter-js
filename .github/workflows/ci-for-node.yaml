@@ -27,7 +27,6 @@ jobs:
                   cache: "yarn"
             - name: install dependencies with yarn
               run: yarn install --frozen-lockfile
-            # - run: yarn run build --if-present
             - run: yarn test
             - name: Check code quality with lint
               run: yarn lint
