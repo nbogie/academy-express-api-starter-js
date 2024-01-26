@@ -3,6 +3,7 @@ const { Pool } = require("pg");
 const { connectLiveReload } = require("./liveReloadSupport");
 require("dotenv").config(); //load key-value pairs from any .env files into process.env
 const { randomDieRoll } = require("./dice");
+const cors = require("cors");
 
 if (!process.env.DATABASE_URL) {
     throw new Error(
@@ -23,6 +24,9 @@ app.use(express.static("public"));
 
 //parse any form content from request body (application/x-www-form-urlencoded), making available as req.body
 app.use(express.urlencoded({ extended: false }));
+
+//auto-include CORS headers to allow consumption of our content by in-browser js loaded from elsewhere
+app.use(cors());
 
 app.set("view engine", "ejs");
 
