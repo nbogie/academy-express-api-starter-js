@@ -20,10 +20,12 @@ If you have used this project as a template, remember to change this readme file
 -   formatting with prettier
 -   linting with eslint
 -   workflow config for CI on github (see [.github/workflows/ci-for-node.yaml](.github/workflows/ci-for-node.yaml) )
+-   jsconfig.json (to enable vscode error-reporting in type-checked js files)
 -   .gitignore
 -   demo of classless css framework (sakura.css or mvp.css, etc)
 -   static file serving from `/public`
     -   favicon
+-   TODO: node debugger launcher
 
 ### note about live reload
 
