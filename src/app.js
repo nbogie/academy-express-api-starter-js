@@ -1,13 +1,23 @@
 const express = require("express");
 const { Pool } = require("pg");
-const dotenv = require("dotenv");
+require("dotenv").config();
 const { randomDieRoll } = require("./dice");
-dotenv.config();
+const { connectLiveReload } = require("./liveReloadSupport");
+
+if (!process.env.DATABASE_URL) {
+    throw new Error(
+        "no DATABASE_URL env var - have you set it in .env file or via host interface?",
+    );
+}
 
 const app = express();
+
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
 });
+
+app.set("view engine", "ejs");
+app.use(connectLiveReload());
 
 //configure the server
 app.get("/", (req, res) => {
@@ -19,6 +29,16 @@ app.get("/products", async (req, res) => {
     const rows = dbResult.rows;
     console.log("queried db and got : " + dbResult.rowCount + " row(s)");
     res.json(rows);
+});
+
+app.get("/one", (req, res) => {
+    console.log("foo");
+    res.render("one");
+});
+
+app.get("/two", (req, res) => {
+    console.log("two");
+    res.render("two");
 });
 
 app.get("/randomRoll", (req, res) => {
