@@ -37,12 +37,14 @@ Install dependencies
 
 ## Configuration on dev machine
 
-Copy `.env.example` to `.env` and set DATABASE_URL to your database's connection string.
+Copy `.env.example` to `.env` and set `DATABASE_URL` to your database's connection string.
 
 ## Running
 
 Run (in dev mode with live-reload):
+
 `yarn start:dev`
 
 Run (for production with no live-reload)
+
 `yarn start`
