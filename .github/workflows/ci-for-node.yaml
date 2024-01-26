@@ -28,6 +28,7 @@ jobs:
             - run: npm ci
             - run: yarn run build --if-present
             - run: yarn test
-            - name: Check code quality and formatting with lint and prettier
+            - name: Check code quality with lint
               run: yarn lint
+            - name: Check code formatting with prettier
               run: yarn format:check
