@@ -1,0 +1,12 @@
+{
+  "name": "simplest-express-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "nbogie",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.3"
+  }
+}
