@@ -11,17 +11,22 @@ If you have used this project as a template, remember to change this readme file
 ## Features
 
 -   EJS template setup with express
--   connection-pool setup for node-postgres
--   loads DATABASE_URL from env variable. (And tries to load .env files with dotenv)
--   static file serving from `/public`
--   favicon
--   demo of classless css framework
+-   Database support:
+    -   connection-pool setup for node-postgres
+    -   loads DATABASE_URL from env variable. (And tries to load .env files with dotenv)
+-   live-reload
 -   automated testing with jest
--   example jest test
+    -   example jest test
 -   formatting with prettier
 -   linting with eslint
--   live-reload: in development mode, when viewing an html page, if a file is changed and saved, the browser will make the request again. This won't work if the browser is viewing a json output - it needs to be an html page so that live-reload can insert a javascript fragment into it.
 -   .gitignore
+-   demo of classless css framework (sakura.css or mvp.css, etc)
+-   static file serving from `/public`
+    -   favicon
+
+### note about live reload
+
+In development mode, when viewing an html page, if a file is changed and saved, the browser will make the request again. This won't work if the browser is viewing a json output - it needs to be an html page so that live-reload can insert a javascript fragment into it.
 
 ## Installation
 
