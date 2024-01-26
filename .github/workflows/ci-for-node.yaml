@@ -25,7 +25,7 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
-            - run: npm ci
+            - run: yarn install --frozen-lockfile
             - run: yarn run build --if-present
             - run: yarn test
             - name: Check code quality with lint
