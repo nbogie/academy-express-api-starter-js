@@ -9,7 +9,8 @@
         "start:dev": "nodemon src/app.js --ext 'js ejs html json css'",
         "test": "jest --verbose",
         "lint": "yarn eslint .",
-        "format": "yarn prettier --write ."
+        "format": "yarn prettier --write .",
+        "format:check": "yarn prettier ."
     },
     "dependencies": {
         "dotenv": "^16.4.1",
