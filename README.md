@@ -19,6 +19,7 @@ If you have used this project as a template, remember to change this readme file
     -   example jest test
 -   formatting with prettier
 -   linting with eslint
+-   workflow config for CI on github (see [.github/workflows/ci-for-node.yaml](.github/workflows/ci-for-node.yaml) )
 -   .gitignore
 -   demo of classless css framework (sakura.css or mvp.css, etc)
 -   static file serving from `/public`
