@@ -52,9 +52,23 @@ app.get("/two", (req, res) => {
     console.log("two");
     res.render("two");
 });
-
 app.get("/three", (req, res) => {
+    console.log("three");
     res.render("three");
+});
+
+app.get("/formDemo", (req, res) => {
+    console.log("GET /formDemo");
+    res.render("formDemo");
+});
+
+app.post("/formDemo", (req, res) => {
+    console.log("POST /formDemo");
+    console.log("req.body is: ", req.body);
+    //Don't forget to sanitise and validate user-supplied data before using it
+    const formData = req.body;
+    //just send it back to the user for now
+    res.json(formData);
 });
 
 app.get("/randomRoll", (req, res) => {
