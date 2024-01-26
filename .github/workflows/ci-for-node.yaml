@@ -29,5 +29,5 @@ jobs:
             - run: yarn run build --if-present
             - run: yarn test
             - name: Check code quality and formatting with lint and prettier
-            - run: yarn lint
-            - run: yarn format:check
+              run: yarn lint
+              run: yarn format:check
