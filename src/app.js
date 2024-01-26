@@ -1,8 +1,8 @@
 const express = require("express");
 const { Pool } = require("pg");
-const { randomDieRoll } = require("./dice");
 const { connectLiveReload } = require("./liveReloadSupport");
 require("dotenv").config();
+const { randomDieRoll } = require("./dice");
 
 if (!process.env.DATABASE_URL) {
     throw new Error(
@@ -10,18 +10,25 @@ if (!process.env.DATABASE_URL) {
     );
 }
 
-const app = express();
-
+//docs: https://node-postgres.com/apis/pool
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
+    max: 2, //keep this low. elephantSQL doesn't let you have a lot of connections for free.
 });
 
+const app = express();
+
+//any requests for files which are found in public will be served.  e.g. /index.html will serve from /oublic/index.html
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
-app.use(connectLiveReload());
 
-//configure the server
+if (process.env.NODE_ENV === "development") {
+    console.log("Enabling live-reloading of html pages on file save.");
+    app.use(connectLiveReload());
+}
+
+//configure the server's route handlers
 app.get("/", (req, res) => {
     res.send("Ok here is the root document response.  try /randomRoll");
 });
@@ -52,7 +59,10 @@ app.get("/randomRoll", (req, res) => {
     res.send("NUMBER IS : " + number);
 });
 
+// use the environment variable PORT, or 4000 as a fallback
+const PORT_NUMBER = process.env.PORT ?? 4000;
+
 //start the server listening
-app.listen(3000, () => {
-    console.log("your express app started running!");
+app.listen(PORT_NUMBER, () => {
+    console.log("Your express app started running at " + new Date());
 });
