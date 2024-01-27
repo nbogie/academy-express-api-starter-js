@@ -53,3 +53,7 @@ Run (in dev mode with live-reload):
 Run (for production with no live-reload)
 
 `yarn start`
+
+## Getting started coding
+
+-   [Flavio Copes' Express Handbook](https://www.freecodecamp.org/news/the-express-handbook/)
