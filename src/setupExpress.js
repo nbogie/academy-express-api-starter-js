@@ -1,23 +1,9 @@
 const express = require("express");
-const { Pool } = require("pg");
 const { connectLiveReload } = require("./liveReloadSupport");
 require("dotenv").config(); //load key-value pairs from any .env files into process.env
 const cors = require("cors");
 const session = require("express-session");
-
-/**
- * Returns the value of the given environment variable, or throws an error if it does not exist.
- * @param {string} envVarKey key of environment variable to obtain
- */
-function getEnvVarOrFail(envVarKey) {
-    const foundValue = process.env[envVarKey];
-    if (!foundValue) {
-        throw new Error(
-            `Missing expected env var ${envVarKey}.  Have you set it in an .env file or via host UI?`,
-        );
-    }
-    return foundValue;
-}
+const { getEnvVarOrFail } = require("./support/envVarHelp");
 
 const app = express();
 //any requests for files which are found in public will be served.  e.g. /index.html will serve from /oublic/index.html
@@ -44,10 +30,4 @@ if (process.env.NODE_ENV === "development") {
     app.use(connectLiveReload());
 }
 
-//docs: https://node-postgres.com/apis/pool
-const pool = new Pool({
-    connectionString: getEnvVarOrFail("DATABASE_URL"),
-    max: 2, //keep this low. elephantSQL doesn't let you have a lot of connections for free.
-});
-
-module.exports = { app, pool };
+module.exports = { app };

@@ -1,4 +1,5 @@
-const { app, pool } = require("./setupExpress");
+const { app } = require("./setupExpress");
+const { query } = require("./db");
 
 const { randomDieRoll } = require("./dice");
 
@@ -8,16 +9,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/products.json", async (req, res) => {
-    const dbResult = await pool.query("select * from products limit 20");
+    const dbResult = await query("select * from products limit 20");
     const rows = dbResult.rows;
-    console.log("queried db and got : " + dbResult.rowCount + " row(s)");
     res.json(rows);
 });
 
 app.get("/products", async (req, res) => {
-    const dbResult = await pool.query("select * from products limit 20");
+    const dbResult = await query("select * from products limit 20");
     const rows = dbResult.rows;
-    console.log("queried db and got : " + dbResult.rowCount + " row(s)");
     res.render("pages/products", { products: rows });
 });
 
