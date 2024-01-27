@@ -10,7 +10,7 @@ const app = express();
 
 //any requests for files which are found in public will be served.  e.g. /index.html will serve from /oublic/index.html
 app.use(express.static("public"));
-app.use(morgan("tiny"));
+app.use(morgan("dev"));
 app.set("view engine", "ejs");
 
 //parse any form content from request body (application/x-www-form-urlencoded), making available as req.body
