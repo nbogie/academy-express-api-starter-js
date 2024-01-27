@@ -54,6 +54,28 @@ Run (for production with no live-reload)
 
 `yarn start`
 
+## Running tests
+
+`yarn test`
+
+## Linting
+
+`yarn lint`
+
+## Formatting with prettier
+
+`yarn format`
+
+However, it is suggested you install vscode's prettier extension and enable the user setting `format on save`. When formatting, VSCode will notice the .prettierrc and format according to those rules (and prettier's defaults).
+
+## CI (linting, formatting check, automated tests)
+
+This project includes a workflow file in [.github](.github) which will cause CI to run on github.
+
+## Debugging with vscode
+
+Set a breakpoint in the margin of any JS file, and use run-and-debug (ctrl-shift-d)'s `Run and Debug` button to start express. Bear in mind that a breakpoint set in a request handler won't cause express to pause until a matching request comes in!
+
 ## Getting started coding
 
 -   [Flavio Copes' Express Handbook](https://www.freecodecamp.org/news/the-express-handbook/)
