@@ -4,16 +4,25 @@ const { connectLiveReload } = require("./liveReloadSupport");
 require("dotenv").config(); //load key-value pairs from any .env files into process.env
 const { randomDieRoll } = require("./dice");
 const cors = require("cors");
+const session = require("express-session");
 
-if (!process.env.DATABASE_URL) {
-    throw new Error(
-        "no DATABASE_URL env var - have you set it in .env file or via host interface?",
-    );
+/**
+ * Returns the value of the given environment variable, or throws an error if it does not exist.
+ * @param {string} envVarKey key of environment variable to obtain
+ */
+function getEnvVarOrFail(envVarKey) {
+    const foundValue = process.env[envVarKey];
+    if (!foundValue) {
+        throw new Error(
+            `Missing expected env var ${envVarKey}.  Have you set it in an .env file or via host UI?`,
+        );
+    }
+    return foundValue;
 }
 
 //docs: https://node-postgres.com/apis/pool
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: getEnvVarOrFail("DATABASE_URL"),
     max: 2, //keep this low. elephantSQL doesn't let you have a lot of connections for free.
 });
 
@@ -28,6 +37,14 @@ app.use(express.urlencoded({ extended: false }));
 //auto-include CORS headers to allow consumption of our content by in-browser js loaded from elsewhere
 app.use(cors());
 
+app.use(
+    session({
+        secret: getEnvVarOrFail("SESSION_SECRET"),
+        resave: false,
+        saveUninitialized: false,
+    }),
+);
+
 app.set("view engine", "ejs");
 
 if (process.env.NODE_ENV === "development") {
@@ -40,7 +57,7 @@ app.get("/", (req, res) => {
     res.send("Ok here is the root document response.  try /randomRoll");
 });
 
-app.get("/products", async (req, res) => {
+app.get("/products.json", async (req, res) => {
     const dbResult = await pool.query("select * from products limit 20");
     const rows = dbResult.rows;
     console.log("queried db and got : " + dbResult.rowCount + " row(s)");
@@ -63,9 +80,26 @@ app.get("/two", (req, res) => {
     console.log("two");
     res.render("pages/two");
 });
+
 app.get("/three", (req, res) => {
     console.log("three");
     res.render("pages/three");
+});
+
+app.get("/four", (req, res) => {
+    console.log("four");
+
+    console.log("see session", req.session);
+    res.render("pages/four", { session: req.session });
+});
+
+app.post("/addToSession", (req, res) => {
+    if (!("messages" in req.session)) {
+        req.session.messages = [];
+    }
+    req.session.messages.push(`${req.body.message} at ${new Date()}`);
+    console.log("/addToSession");
+    res.redirect("/four");
 });
 
 app.get("/formDemo", (req, res) => {

@@ -1,0 +1,14 @@
+  <%- include("../partials/header.ejs") %>
+  <h2>four.ejs</h2>
+  Add to session:
+  <form action="/addToSession" method="POST">
+    <input name="message" placeholder="your message here" type="input" />
+    <button>send</button>
+  </form>
+
+  <pre>
+    <%= JSON.stringify(session, null, 2) %>
+  </pre>
+  </body>
+
+  </html>
