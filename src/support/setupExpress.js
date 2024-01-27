@@ -26,7 +26,8 @@ app.use(
     }),
 );
 
-if (process.env.NODE_ENV === "development") {
+console.log("process.env.NODE_ENV is " + process.env.NODE_ENV);
+if (process.env.NODE_ENV !== "production") {
     console.log("Enabling live-reloading of html pages on file save.");
     app.use(connectLiveReload());
 }
