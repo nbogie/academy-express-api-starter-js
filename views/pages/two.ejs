@@ -1,10 +1,14 @@
-  <%- include("../partials/header.ejs") %>
-  <h2>two.ejs</h2>
-  <div class="grid">
-    <% for (let x of [10, 20, 30, 40, 50]){ %>
-    <div class="cell"><%= x %></div>
-    <% } %>
-  </div>
-  </body>
+<%- include("../partials/header.ejs", {title: "Two"}) %>
 
-  </html>
+<div>hello from two.ejs</div>
+<%= new Date() %>
+
+<h1>Grid</h1>
+<div class="grid">
+  <% for (let x of [10, 20, 30, 40, 50]){ %>
+  <div class="cell"><%= x %></div>
+  <% } %>
+</div>
+</body>
+
+</html>

@@ -1,6 +1,4 @@
-  <%- include("../partials/header.ejs") %>
+  <%- include("../partials/header.ejs", {title: "One"}) %>
 
-  hello from one.ejs
-  <%= performance.now() %>
-  changed
-  other
+  <div>hello from one.ejs</div>
+  <%= new Date() %>
