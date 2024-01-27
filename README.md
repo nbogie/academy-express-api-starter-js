@@ -12,8 +12,10 @@ If you have used this project as a template, remember to change this readme file
 
 -   EJS template setup with express
 -   Database support:
+
     -   connection-pool setup for node-postgres
     -   loads DATABASE_URL from env variable. (And tries to load .env files with dotenv)
+
 -   live-reload
 -   automated testing with jest
     -   example jest test
@@ -21,6 +23,7 @@ If you have used this project as a template, remember to change this readme file
 -   linting with eslint
 -   workflow config for CI on github (see [.github/workflows/ci-for-node.yaml](.github/workflows/ci-for-node.yaml) )
 -   jsconfig.json (to enable vscode error-reporting in type-checked js files)
+-   express-session (only with flaky in-memory support. not meant for production use, only development)
 -   .gitignore
 -   demo of classless css framework (sakura.css or mvp.css, etc)
 -   static file serving from `/public`
