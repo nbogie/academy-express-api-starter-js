@@ -47,6 +47,13 @@ app.get("/products", async (req, res) => {
     res.json(rows);
 });
 
+app.get("/products", async (req, res) => {
+    const dbResult = await pool.query("select * from products limit 20");
+    const rows = dbResult.rows;
+    console.log("queried db and got : " + dbResult.rowCount + " row(s)");
+    res.render("pages/products", { products: rows });
+});
+
 app.get("/one", (req, res) => {
     console.log("foo");
     res.render("pages/one");

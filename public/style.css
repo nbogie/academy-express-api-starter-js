@@ -7,3 +7,8 @@ body {
     max-width: 1200px;
     /* height: 100vh; */
 }
+
+.product {
+    display: grid;
+    grid-template-columns: 3fr 0.4fr 0.4fr 0.4fr 1fr;
+}

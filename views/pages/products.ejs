@@ -1,0 +1,16 @@
+<%- include("../partials/header.ejs") %>
+<h1>products</h1>
+<div class="products">
+  <% for (let product of products){ %>
+  <div class="product">
+    <div><%= product.product_name %></div>
+    <div><%= product.units_in_stock %></div>
+    <div><%= product.units_on_order %></div>
+    <div><%= product.reorder_level %></div>
+    <div><%= product.quantity_per_unit %></div>
+  </div>
+  <% } %>
+</div>
+</body>
+
+</html>
