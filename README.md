@@ -25,10 +25,11 @@ If you have used this project as a template, remember to change this readme file
 -   jsconfig.json (to enable vscode error-reporting in type-checked js files)
 -   express-session (only with flaky in-memory support. not meant for production use, only development)
 -   .gitignore
+-   logging with morgan
 -   demo of classless css framework (sakura.css or mvp.css, etc)
 -   static file serving from `/public`
     -   favicon
--   TODO: node debugger launcher
+-   TODO: error-handling
 
 ### note about live reload
 
