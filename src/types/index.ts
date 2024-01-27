@@ -5,5 +5,6 @@ import "express-session";
 declare module "express-session" {
     export interface SessionData {
         messages: string[];
+        clickedCells: number[];
     }
 }

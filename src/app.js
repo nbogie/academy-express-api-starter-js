@@ -5,7 +5,7 @@ const { randomDieRoll } = require("./dice");
 
 //configure the server's route handlers
 app.get("/", (req, res) => {
-    res.send("Ok here is the root document response.  try /randomRoll");
+    res.render("pages/index");
 });
 
 app.get("/products.json", async (req, res) => {
@@ -35,7 +35,9 @@ app.get("/one", (req, res) => {
 });
 
 app.get("/two", (req, res) => {
-    res.render("pages/two");
+    res.render("pages/two", {
+        clickedCells: req.session.clickedCells || [],
+    });
 });
 
 app.get("/three", (req, res) => {
@@ -72,6 +74,16 @@ app.get("/randomRoll", (req, res) => {
     res.send("NUMBER IS : " + number);
 });
 
+app.get("/clickCell/:cellId", (req, res) => {
+    const cells = new Set(req.session.clickedCells || []);
+    console.log("req.session.clickedCells", cells);
+    const num = parseInt(req.params.cellId);
+    if (!isNaN(num)) {
+        cells.add(num);
+    }
+    req.session.clickedCells = Array.from(cells);
+    res.redirect("/two");
+});
 // use the environment variable PORT, or 4000 as a fallback
 const PORT_NUMBER = process.env.PORT ?? 4000;
 
