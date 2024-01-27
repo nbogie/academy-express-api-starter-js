@@ -49,21 +49,21 @@ app.get("/products", async (req, res) => {
 
 app.get("/one", (req, res) => {
     console.log("foo");
-    res.render("one");
+    res.render("pages/one");
 });
 
 app.get("/two", (req, res) => {
     console.log("two");
-    res.render("two");
+    res.render("pages/two");
 });
 app.get("/three", (req, res) => {
     console.log("three");
-    res.render("three");
+    res.render("pages/three");
 });
 
 app.get("/formDemo", (req, res) => {
     console.log("GET /formDemo");
-    res.render("formDemo");
+    res.render("pages/formDemo");
 });
 
 app.post("/formDemo", (req, res) => {
