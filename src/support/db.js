@@ -1,5 +1,5 @@
 const { Pool } = require("pg");
-const { getEnvVarOrFail } = require("./support/envVarHelp");
+const { getEnvVarOrFail } = require("./envVarHelp");
 
 //docs: https://node-postgres.com/apis/pool
 const pool = new Pool({

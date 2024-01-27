@@ -3,9 +3,10 @@ const { connectLiveReload } = require("./liveReloadSupport");
 require("dotenv").config(); //load key-value pairs from any .env files into process.env
 const cors = require("cors");
 const session = require("express-session");
-const { getEnvVarOrFail } = require("./support/envVarHelp");
+const { getEnvVarOrFail } = require("./envVarHelp");
 
 const app = express();
+
 //any requests for files which are found in public will be served.  e.g. /index.html will serve from /oublic/index.html
 app.use(express.static("public"));
 

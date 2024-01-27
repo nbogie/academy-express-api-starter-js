@@ -1,5 +1,5 @@
-const { app } = require("./setupExpress");
-const { query } = require("./db");
+const { app } = require("./support/setupExpress");
+const { query } = require("./support/db");
 
 const { randomDieRoll } = require("./dice");
 
