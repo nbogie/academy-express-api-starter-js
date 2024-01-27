@@ -13,8 +13,8 @@ If you have used this project as a template, remember to change this readme file
 -   EJS template setup with express
 -   Database support:
 
-    -   connection-pool setup for node-postgres
-    -   loads DATABASE_URL from env variable. (And tries to load .env files with dotenv)
+    -   connection-pool setup for [node-postgres](https://node-postgres.com/)
+    -   loads DATABASE_URL from env variable. (And tries to load `.env` files with `dotenv`)
 
 -   live-reload
 -   automated testing with jest
@@ -25,8 +25,8 @@ If you have used this project as a template, remember to change this readme file
 -   jsconfig.json (to enable vscode error-reporting in type-checked js files)
 -   express-session (only with flaky in-memory support. not meant for production use, only development)
 -   .gitignore
--   logging with morgan
--   demo of classless css framework (sakura.css or mvp.css, etc)
+-   logging with [morgan](https://expressjs.com/en/resources/middleware/morgan.html)
+-   demo of classless css framework ([sakura.css](https://oxal.org/projects/sakura/) or mvp.css, etc)
 -   static file serving from `/public`
     -   favicon
 -   TODO: error-handling
