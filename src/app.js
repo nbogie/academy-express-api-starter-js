@@ -9,13 +9,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/products.json", async (req, res) => {
-    const dbResult = await query("select * from products limit 20");
+    const dbResult = await query(
+        "select * from " +
+            " products " +
+            " inner join suppliers on products.supplier_id = suppliers.supplier_id " +
+            "limit 20",
+    );
     const rows = dbResult.rows;
     res.json(rows);
 });
 
 app.get("/products", async (req, res) => {
-    const dbResult = await query("select * from products limit 20");
+    const dbResult = await query(
+        "select * from " +
+            " products " +
+            " inner join suppliers on products.supplier_id = suppliers.supplier_id " +
+            "limit 20",
+    );
     const rows = dbResult.rows;
     res.render("pages/products", { products: rows });
 });
