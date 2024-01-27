@@ -42,7 +42,10 @@ Install dependencies
 
 ## Configuration on dev machine
 
-Copy `.env.example` to `.env` and set `DATABASE_URL` to your database's connection string.
+Copy `.env.example` to `.env` and set any variables there appropriately:
+
+-   `DATABASE_URL` to your database's connection string.
+-   `SESSION_SECRET` to a long very random string with no spaces, unique to your application.
 
 ## Running
 
