@@ -31,24 +31,19 @@ app.get("/products", async (req, res) => {
 });
 
 app.get("/one", (req, res) => {
-    console.log("/one");
     res.render("pages/one");
 });
 
 app.get("/two", (req, res) => {
-    console.log("two");
     res.render("pages/two");
 });
 
 app.get("/three", (req, res) => {
-    console.log("three");
     res.render("pages/three");
 });
 
 app.get("/four", (req, res) => {
-    console.log("four");
-
-    console.log("see session", req.session);
+    console.log("session content: ", req.session);
     res.render("pages/four", { session: req.session });
 });
 
@@ -57,17 +52,14 @@ app.post("/addToSession", (req, res) => {
         req.session.messages = [];
     }
     req.session.messages.push(`${req.body.message} at ${new Date()}`);
-    console.log("/addToSession");
     res.redirect("/four");
 });
 
 app.get("/formDemo", (req, res) => {
-    console.log("GET /formDemo");
     res.render("pages/formDemo");
 });
 
 app.post("/formDemo", (req, res) => {
-    console.log("POST /formDemo");
     console.log("req.body is: ", req.body);
     //Don't forget to sanitise and validate user-supplied data before using it
     const formData = req.body;
