@@ -2,11 +2,29 @@
 
 This is an intermediate starter template for express apps written in JavaScript (not TypeScript).
 
-It does not use express router.
+It does not use express router, though you are free to make use of that.
 
 ## Change this README.md file!
 
 If you have used this project as a template, remember to change this readme file to add your own documentation and remove anything you don't need.
+
+## Read this first - check your formatters
+
+Prior to making any changes to the files in this repo, we suggest you make sure your editor is set up correctly to format them the same way as they have been, previously.
+
+1.  Install all the recommended vscode extensions.
+1.  Run `yarn` to install prettier and eslint (among others).
+1.  Make a tiny change to an ejs file [/views/pages/index.ejs](/views/pages/index.ejs) and confirm that the editor doesn't reformat the entire file differently when you save. (It _should_ be formatting on save\*, but the formatting rules used should match what has been used when making this project template).
+1.  Do the same for a javascript file [/src/app.js](/src/app.js) - this should be formatted by prettier.
+
+\* If you're curious what formatter settings have been adapted for this project, see [/.vscode/settings.json](/.vscode/settings.json):
+
+-   prettier has been configured to be the default formatter for all files
+-   but for "html" files (which as we'll see will include EJS files), the EJS-beautify extension will be used instead as an override to the above
+-   "format on save" is enabled
+-   ejs files are to be loaded in HTML-language mode (for better html autocompletion and syntax highlighting)
+
+(Of course, you and any teammates are welcome to change the formatting of all files in what is now YOUR project! That will cause a some "noise" on your first save of each file.)
 
 ## Features
 
