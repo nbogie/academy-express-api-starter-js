@@ -1,6 +1,9 @@
 import { app } from "./support/setupExpress.js";
 import { query } from "./support/db.js";
 import { sum } from "./sum.js";
+import { setupARouteHandlerDemonstratingValidationWithJoi } from "./joiDemo/setupARouteHandlerDemonstratingValidationWithJoi.js";
+
+//You should delete all of these route handlers and replace them according to your own requirements
 
 app.get("/", (req, res) => {
     res.json({
@@ -32,6 +35,9 @@ app.get("/db-check", async (req, res) => {
         console.error("error handling db-check: ", error);
     }
 });
+
+//Delete this, too.  It's just a demo for one way to robustly validate user-submitted data.
+setupARouteHandlerDemonstratingValidationWithJoi(app);
 
 // use the environment variable PORT, or 4000 as a fallback
 const PORT = process.env.PORT ?? 4000;
