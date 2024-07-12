@@ -1,6 +1,6 @@
-import { app } from "./support/setupExpress";
-import { query } from "./support/db";
-import { randomDieRoll } from "./dice";
+import { app } from "./support/setupExpress.js";
+import { query } from "./support/db.js";
+import { randomDieRoll } from "./dice.js";
 
 app.get("/", (req, res) => {
     res.json({
@@ -9,6 +9,10 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/randomRoll", (req, res) => {
+    const number = randomDieRoll();
+    res.send("NUMBER IS : " + number);
+});
 //An example route that makes an SQL query to the db.
 app.get("/db-check", async (req, res) => {
     try {
@@ -17,11 +21,6 @@ app.get("/db-check", async (req, res) => {
     } catch (error) {
         console.error("error handling db-check: ", error);
     }
-});
-
-app.get("/randomRoll", (req, res) => {
-    const number = randomDieRoll();
-    res.send("NUMBER IS : " + number);
 });
 
 // use the environment variable PORT, or 4000 as a fallback

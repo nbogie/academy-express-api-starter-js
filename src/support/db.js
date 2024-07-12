@@ -1,5 +1,7 @@
-import { Pool } from "pg";
-import { getEnvVarOrFail } from "./envVarHelp";
+import pg from "pg";
+const { Pool } = pg;
+
+import { getEnvVarOrFail } from "./envVarHelp.js";
 
 /**
  * A small pool of connections to the database specified in the env var `DATABASE_URL`
