@@ -1,18 +1,19 @@
 import { app } from "./support/setupExpress.js";
 import { query } from "./support/db.js";
-import { randomDieRoll } from "./dice.js";
+import { sum } from "./sum.js";
 
 app.get("/", (req, res) => {
     res.json({
         outcome: "success",
-        message: "hello world!",
+        message: "hello world!  Try /sum/1/2 or /db-check",
     });
 });
-
-app.get("/randomRoll", (req, res) => {
-    const number = randomDieRoll();
-    res.send("NUMBER IS : " + number);
+//just an example route handler.  delete it.
+app.get("/sum/:a/:b", (req, res) => {
+    const answer = sum(parseInt(req.params.a), parseInt(req.params.b));
+    res.json({ answer });
 });
+
 //An example route that makes an SQL query to the db.
 app.get("/db-check", async (req, res) => {
     try {

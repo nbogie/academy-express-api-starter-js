@@ -2,17 +2,18 @@
     "name": "academy-express-api-starter-js",
     "version": "1.0.0",
     "type": "module",
-    "main": "src/app.js",
+    "main": "src/server.js",
     "author": "nbogie",
     "license": "MIT",
     "scripts": {
-        "start": "node src/app.js",
-        "start:dev": "nodemon src/app.js --ext 'js'",
+        "start": "node src/server.js",
+        "start:dev": "nodemon src/server.js --ext 'js'",
         "test": "vitest --run",
         "test:watch": "vitest --run --reporter=verbose",
         "lint": "yarn eslint .",
         "format": "yarn prettier --write .",
-        "format:check": "yarn prettier ."
+        "format:check": "yarn prettier --check .",
+        "check-all": "yarn lint && yarn format:check && yarn test && echo 'All checks passed!'"
     },
     "dependencies": {
         "cors": "^2.8.5",

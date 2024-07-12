@@ -1,14 +1,14 @@
 import pg from "pg";
 const { Pool } = pg;
 
-import { getEnvVarOrFail } from "./envVarHelp.js";
+import { getEnvironmentVariableOrFail } from "./environmentVariableHelp.js";
 
 /**
  * A small pool of connections to the database specified in the env var `DATABASE_URL`
  * @see https://node-postgres.com/apis/pool
  */
 const pool = new Pool({
-    connectionString: getEnvVarOrFail("DATABASE_URL"),
+    connectionString: getEnvironmentVariableOrFail("DATABASE_URL"),
     max: 2, //keep this low. elephantSQL doesn't let you have a lot of connections for free.
 });
 

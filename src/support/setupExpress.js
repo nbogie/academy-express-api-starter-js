@@ -2,8 +2,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
-dotenv.config(); //load any key-value pairs from any .env files into process.env
-// import { getEnvVarOrFail } from "./envVarHelp.js";
+// import { getEnvironmentVariableOrFail } from "./environmentVariableHelp.js";
+//load any key-value pairs from any .env files into process.env
+dotenv.config();
 
 const app = express();
 
