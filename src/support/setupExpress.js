@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
 dotenv.config(); //load any key-value pairs from any .env files into process.env
-// import { getEnvVarOrFail } from "./envVarHelp";
+// import { getEnvVarOrFail } from "./envVarHelp.js";
 
 const app = express();
 

@@ -1,6 +1,6 @@
 //@ts-check
 import { test, expect } from "vitest";
-import { randomDieRoll } from "./dice";
+import { randomDieRoll } from "./dice.js";
 
 test("randomDieRoll", () => {
     for (let i = 0; i < 1000; i++) {
