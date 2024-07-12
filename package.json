@@ -1,6 +1,7 @@
 {
     "name": "academy-express-api-starter-js",
     "version": "1.0.0",
+    "type": "module",
     "main": "src/app.js",
     "author": "nbogie",
     "license": "MIT",
