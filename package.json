@@ -6,7 +6,7 @@
     "license": "MIT",
     "scripts": {
         "start": "node src/app.js",
-        "start:dev": "nodemon src/app.js --ext 'js ejs html json css'",
+        "start:dev": "nodemon src/app.js --ext 'js'",
         "test": "vitest --run",
         "test:watch": "vitest --run --reporter=verbose",
         "lint": "yarn eslint .",
