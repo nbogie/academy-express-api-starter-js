@@ -9,6 +9,7 @@ app.get("/", (req, res) => {
     });
 });
 
+//An example route that makes an SQL query to the db.
 app.get("/db-check", async (req, res) => {
     try {
         const dbResult = await query("select * from my_table");
@@ -24,11 +25,10 @@ app.get("/randomRoll", (req, res) => {
 });
 
 // use the environment variable PORT, or 4000 as a fallback
-const PORT_NUMBER = process.env.PORT ?? 4000;
+const PORT = process.env.PORT ?? 4000;
 
-//start the server listening
-app.listen(PORT_NUMBER, () => {
+app.listen(PORT, () => {
     console.log(
-        `Your express app started listening on ${PORT_NUMBER} running at ${new Date()}`
+        `Your express app started listening on ${PORT}, at ${new Date()}`
     );
 });
