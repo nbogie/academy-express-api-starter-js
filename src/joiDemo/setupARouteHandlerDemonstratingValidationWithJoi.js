@@ -14,6 +14,8 @@ export const albumSchema = Joi.object().keys({
 });
 
 export function setupARouteHandlerDemonstratingValidationWithJoi(app) {
+    app.post("/album", handlePOSTAlbumRequest);
+
     /**
      * @param {import('express').Request} req
      * @param {import('express').Response} res
@@ -32,6 +34,4 @@ export function setupARouteHandlerDemonstratingValidationWithJoi(app) {
             validatedAlbum: value,
         });
     }
-
-    app.post("/album", handlePOSTAlbumRequest);
 }
