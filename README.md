@@ -1,4 +1,4 @@
-# Intermediate starter for _javascript_ express APIs
+# Intermediate starter for _javascript_ express APIs.
 
 This is an intermediate starter template for node.js API apps written in JavaScript (not TypeScript) using Express.
 
