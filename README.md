@@ -4,6 +4,18 @@ This is an intermediate starter template for node.js API apps written in JavaScr
 
 It does not use express router, though you are free to make use of that.
 
+## Configuration on dev machine
+
+Copy `.env.example` to `.env` and set any variables there appropriately:
+
+-   `DATABASE_URL` to your database's connection string.
+
+If you are not using a database, change server.js to remove any import of the `support/db.js` module.
+
+## Configuration on production environment
+
+If you using a DB for this API, set the `DATABASE_URL` environment variable (e.g. on render.com this is done through the UI under settings/environment).
+
 ## Change this README.md file!
 
 If you have used this project as a template, remember to change this readme file to add your own documentation and remove anything you don't need.
@@ -13,7 +25,7 @@ If you have used this project as a template, remember to change this readme file
 -   Database support:
 
     -   connection-pool setup for [node-postgres](https://node-postgres.com/)
-    -   loads DATABASE_URL from env variable. (And tries to load `.env` files with `dotenv`)
+    -   loads `DATABASE_URL` from env variable. (And tries to load `.env` files with `dotenv`)
 
 -   automated testing with vitest
     -   example test
@@ -30,12 +42,6 @@ If you have used this project as a template, remember to change this readme file
 Install dependencies
 
 `yarn`
-
-## Configuration on dev machine
-
-Copy `.env.example` to `.env` and set any variables there appropriately:
-
--   `DATABASE_URL` to your database's connection string.
 
 ## Running
 
