@@ -8,11 +8,20 @@ app.get("/", (req, res) => {
         message: "hello world!  Try /sum/1/2 or /db-check",
     });
 });
+
 //just an example route handler.  delete it.
-app.get("/sum/:a/:b", (req, res) => {
+app.get("/sum/:a/:b", handleGETRequestForSum);
+
+//This jsdoc comment helps vscode figure out the correct types for req and res for autocompletion, etc,
+//when it can't figure it out from context.
+/**
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
+function handleGETRequestForSum(req, res) {
     const answer = sum(parseInt(req.params.a), parseInt(req.params.b));
     res.json({ answer });
-});
+}
 
 //An example route that makes an SQL query to the db.
 app.get("/db-check", async (req, res) => {

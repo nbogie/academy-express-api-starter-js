@@ -77,6 +77,12 @@ yarn format
 
 However, it is suggested you install vscode's prettier extension and enable the user setting `format on save`. When formatting, VSCode will notice the .prettierrc and format according to those rules (and prettier's defaults).
 
+## checking linting, formatting, and tests together
+
+```bash
+yarn check-all
+```
+
 ## CI (linting, formatting check, automated tests)
 
 This project includes a workflow file in [.github](.github) which will cause CI to run on github.
