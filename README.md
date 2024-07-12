@@ -91,6 +91,14 @@ This project includes a workflow file in [.github](.github) which will cause CI 
 
 Set a breakpoint in the margin of any JS file, and use run-and-debug (ctrl-shift-d)'s `Run and Debug` button to start express. Bear in mind that a breakpoint set in a request handler won't cause express to pause until a matching request comes in!
 
+## Documenting your API
+
+An simple example swagger document can be found in `openapi-docs/openapi.json`.
+
+If you don't need it, it can be safely deleted.
+
+[A more thorough example repo](https://github.com/nbogie/demo-express-api-with-swagger-jsdoc-and-ui/) is available and recommended for those wanting to learn how to maintain and serve documentation alongside their API.
+
 ## Getting started coding
 
 -   [Flavio Copes' Express Handbook](https://www.freecodecamp.org/news/the-express-handbook/)
