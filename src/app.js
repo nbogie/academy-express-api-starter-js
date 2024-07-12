@@ -1,6 +1,6 @@
-const { app } = require("./support/setupExpress");
-const { query } = require("./support/db");
-const { randomDieRoll } = require("./dice");
+import { app } from "./support/setupExpress";
+import { query } from "./support/db";
+import { randomDieRoll } from "./dice";
 
 app.get("/", (req, res) => {
     res.json({

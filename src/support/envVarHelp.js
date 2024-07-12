@@ -2,7 +2,7 @@
  * Returns the value of the given environment variable, or throws an error if it does not exist.
  * @param {string} envVarKey key of environment variable to obtain
  */
-function getEnvVarOrFail(envVarKey) {
+export function getEnvVarOrFail(envVarKey) {
     const foundValue = process.env[envVarKey];
     if (!foundValue) {
         throw new Error(
@@ -11,4 +11,3 @@ function getEnvVarOrFail(envVarKey) {
     }
     return foundValue;
 }
-module.exports = { getEnvVarOrFail };

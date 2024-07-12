@@ -1,5 +1,5 @@
-const { Pool } = require("pg");
-const { getEnvVarOrFail } = require("./envVarHelp");
+import { Pool } from "pg";
+import { getEnvVarOrFail } from "./envVarHelp";
 
 /**
  * A small pool of connections to the database specified in the env var `DATABASE_URL`
@@ -29,4 +29,4 @@ async function query(sql, values = []) {
     );
     return dbResult;
 }
-module.exports = { pool, query };
+export { pool, query };

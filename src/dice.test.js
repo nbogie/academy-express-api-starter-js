@@ -1,5 +1,6 @@
-const { test, expect } = require("vitest");
-const { randomDieRoll } = require("./dice");
+//@ts-check
+import { test, expect } from "vitest";
+import { randomDieRoll } from "./dice";
 
 test("randomDieRoll", () => {
     for (let i = 0; i < 1000; i++) {
