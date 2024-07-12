@@ -35,7 +35,7 @@ If you have used this project as a template, remember to change this readme file
 -   jsconfig.json (to enable vscode error-reporting in type-checked js files)
 -   .gitignore
 -   logging with [morgan](https://expressjs.com/en/resources/middleware/morgan.html)
--   TODO: error-handling
+-   simplest demo of input validation with [joi](https://joi.dev/)
 
 ## Installation
 
