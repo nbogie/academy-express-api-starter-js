@@ -24,7 +24,7 @@ app.use(
         secret: getEnvVarOrFail("SESSION_SECRET"),
         resave: false,
         saveUninitialized: false,
-    }),
+    })
 );
 
 console.log("process.env.NODE_ENV is " + process.env.NODE_ENV);

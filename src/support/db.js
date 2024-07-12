@@ -25,7 +25,7 @@ async function query(sql, values = []) {
     console.log("running sql: ", sql);
     const dbResult = await pool.query(sql, values);
     console.log(
-        `Queried db and got : ${dbResult.rowCount} row(s).  SQL was:  ${sql}`,
+        `Queried db and got : ${dbResult.rowCount} row(s).  SQL was:  ${sql}`
     );
     return dbResult;
 }

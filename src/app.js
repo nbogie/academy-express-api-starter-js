@@ -29,6 +29,6 @@ const PORT_NUMBER = process.env.PORT ?? 4000;
 //start the server listening
 app.listen(PORT_NUMBER, () => {
     console.log(
-        `Your express app started listening on ${PORT_NUMBER} running at ${new Date()}`,
+        `Your express app started listening on ${PORT_NUMBER} running at ${new Date()}`
     );
 });
