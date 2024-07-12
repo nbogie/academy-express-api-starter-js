@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { albumSchema } from "./setupARouteHandlerDemonstratingValidationWithJoi.js";
+import { albumSchema } from "./albumSchema.js";
 test("validates ok when album is correct", () => {
     const submittedData = {
         title: "Slowhand",
