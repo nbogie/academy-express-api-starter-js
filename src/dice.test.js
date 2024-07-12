@@ -1,3 +1,5 @@
+import { test, expect } from "vitest";
+
 const { randomDieRoll } = require("./dice");
 
 test("randomDieRoll", () => {
