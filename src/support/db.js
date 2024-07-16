@@ -7,9 +7,11 @@ import { getEnvironmentVariableOrFail } from "./environmentVariableHelp.js";
  * A small pool of connections to the database specified in the env var `DATABASE_URL`
  * @see https://node-postgres.com/apis/pool
  */
+const dbURL = getEnvironmentVariableOrFail("DATABASE_URL");
 const pool = new Pool({
-    connectionString: getEnvironmentVariableOrFail("DATABASE_URL"),
-    max: 2, //keep this low. elephantSQL doesn't let you have a lot of connections for free.
+    connectionString: dbURL,
+    ssl: !dbURL.includes("localhost"),
+    max: 8,
 });
 
 /**
