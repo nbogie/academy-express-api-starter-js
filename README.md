@@ -48,7 +48,7 @@ Install dependencies
 In dev mode
 
 ```bash
-yarn start:dev
+yarn dev
 ```
 
 Running in production
