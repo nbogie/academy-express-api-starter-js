@@ -1,5 +1,5 @@
 import { albumSchema } from "./albumSchema.js";
-//docs are at https://joi.dev/api/
+//docs are at https://zod.dev/
 
 export function setupARouteHandlerDemonstratingValidationWithZod(app) {
     app.post("/album", handlePOSTAlbumRequest);
