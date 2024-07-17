@@ -15,15 +15,19 @@ const pool = new Pool({
 });
 
 /**
- * Promises to execute the given SQL query, optionally using any given values in place of placeholders $1, $2, etc.
+ * Promises to execute the given SQL query,
+ * optionally using an array of given values in place of placeholders $1, $2, etc.
  *
  * @param {string} sql The SQL query to execute
  * @param {any[]} values
- * 
+ *
  * Note: Returns a promise - you'll need to `await` its resolution, or schedule a subsequent function with `.then()`
  *
+ * Has the same interface as node-postgres's client.query or pool.query:
+ *
+ * @link https://node-postgres.com/features/queries
+ *
  * Note: Don't use this for multi-query transactions - see https://node-postgres.com/apis/pool#poolquery
-
  */
 async function query(sql, values = []) {
     console.log("running sql: ", sql);
