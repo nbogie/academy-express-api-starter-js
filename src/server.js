@@ -33,6 +33,8 @@ app.get("/db-check", async (req, res) => {
         res.json(dbResult.rows);
     } catch (error) {
         console.error("error handling db-check: ", error);
+        //don't forget to send a response back to the client!
+        res.status(500).json({ outcome: "error", message: "see server logs" });
     }
 });
 
