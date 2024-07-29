@@ -10,6 +10,9 @@
         "dev": "nodemon src/server.js",
         "test": "vitest --run",
         "test:watch": "vitest --reporter=verbose",
+        "test:coverage": "vitest --run --coverage",
+        "test:coverage:html": "vitest --run --coverage --coverage.reporter=html && echo 'See coverage/index.html'",
+        "test:ui": "vitest --ui --coverage.enabled=true",
         "lint": "yarn eslint .",
         "format": "yarn prettier --write .",
         "format:check": "yarn prettier --check .",
@@ -25,6 +28,8 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.6.0",
+        "@vitest/coverage-v8": "^2.0.4",
+        "@vitest/ui": "^2.0.4",
         "eslint": "9.x",
         "globals": "^15.8.0",
         "nodemon": "^3.1.4",
